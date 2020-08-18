@@ -40,13 +40,13 @@ dev.copy(png, file = "figures/plot_totalsteps_perday.png")
 ```
 
 png 
-  3 
+  4 
 
 ```r
 dev.off()
 ```
 
-png 
+pdf 
   2 
 
 ```r
@@ -89,13 +89,13 @@ dev.copy(png, file = "figures/plot_steps_per_interval.png")
 ```
 
 png 
-  3 
+  4 
 
 ```r
 dev.off()
 ```
 
-png 
+pdf 
   2 
 
 ```r
@@ -149,6 +149,20 @@ with(filled_totalsteps_perday,
 ![](PA1_template_files/figure-html/missing_values-1.png)<!-- -->
 
 ```r
+dev.copy(png, file = "figures/filled_totalsteps_perday.png")
+```
+
+png 
+  4 
+
+```r
+dev.off()
+```
+
+pdf 
+  2 
+
+```r
 mean(filled_totalsteps_perday$totalsteps)
 ```
 
@@ -191,3 +205,17 @@ qplot(interval, avgsteps, data=steps_perweekday,
 ```
 
 ![](PA1_template_files/figure-html/weekdays-1.png)<!-- -->
+
+```r
+dev.copy(png, file = "figures/steps_perweekday.png")
+```
+
+png 
+  4 
+
+```r
+dev.off()
+```
+
+pdf 
+  2 
