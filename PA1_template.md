@@ -1,11 +1,10 @@
 ---
-title: 'Reproducible Research: Peer Assessment 1'
+title: 'RepResearch_PeerAssessment1'
 author: "rlfacanha"
 date: "17/08/2020"
 output:
   html_document:
     keep_md: yes
-  pdf_document: default
 ---
 
 ## Loading and preprocessing the data
