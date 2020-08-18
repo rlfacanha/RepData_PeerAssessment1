@@ -36,6 +36,20 @@ with(totalsteps_perday, hist(totalsteps_perday$totalsteps, xlab = "Total Steps P
 ![](PA1_template_files/figure-html/activity_mean_steps-1.png)<!-- -->
 
 ```r
+dev.copy(png, file = "figures/plot_totalsteps_perday.png")
+```
+
+png 
+  3 
+
+```r
+dev.off()
+```
+
+png 
+  2 
+
+```r
 #3. Calculate and report the mean and median of the total number of steps taken per day
 mean(totalsteps_perday$totalsteps)
 ```
@@ -69,6 +83,20 @@ with(steps_per_interval, plot(steps_per_interval$interval,
 ```
 
 ![](PA1_template_files/figure-html/daily_activity_pattern-1.png)<!-- -->
+
+```r
+dev.copy(png, file = "figures/plot_steps_per_interval.png")
+```
+
+png 
+  3 
+
+```r
+dev.off()
+```
+
+png 
+  2 
 
 ```r
 #2. Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
