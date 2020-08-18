@@ -25,6 +25,7 @@ activity_na <- activity[complete.cases(activity), ]
 totalsteps_perday <- activity_na %>% group_by(date) %>% summarize(totalsteps=sum(steps))
 #2. Make a histogram of the total number of steps taken each day
 hist(totalsteps_perday$totalsteps, xlab = "Total Steps Per Day", col = "red", main = "Histogram of the total number of steps taken each day")
+hist(totalsteps_perday$totalsteps)
 dev.copy(png, file = "figures/plot_totalsteps_perday.png")
 dev.off()
 #3. Calculate and report the mean and median of the total number of steps taken per day
