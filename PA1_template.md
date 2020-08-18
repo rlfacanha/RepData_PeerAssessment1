@@ -36,13 +36,7 @@ hist(totalsteps_perday$totalsteps, xlab = "Total Steps Per Day", col = "red", ma
 ![](PA1_template_files/figure-html/activity_mean_steps-1.png)<!-- -->
 
 ```r
-hist(totalsteps_perday$totalsteps)
-```
-
-![](PA1_template_files/figure-html/activity_mean_steps-2.png)<!-- -->
-
-```r
-dev.copy(png, file = "plot_totalsteps_perday.png")
+dev.copy(png, file = "figures/plot_totalsteps_perday.png")
 ```
 
 png 
