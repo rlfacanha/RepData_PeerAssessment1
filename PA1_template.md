@@ -3,9 +3,9 @@ title: 'Reproducible Research: Peer Assessment 1'
 author: "rlfacanha"
 date: "17/08/2020"
 output:
-  pdf_document: default
   html_document:
     keep_md: yes
+  pdf_document: default
 ---
 
 ## Loading and preprocessing the data

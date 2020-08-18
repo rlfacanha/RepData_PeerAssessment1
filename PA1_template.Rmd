@@ -3,21 +3,21 @@ title: 'Reproducible Research: Peer Assessment 1'
 author: "rlfacanha"
 date: "17/08/2020"
 output:
-  pdf_document: default
   html_document:
     keep_md: yes
+  pdf_document: default
 ---
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, results = "asis")
 ```
 ## Loading and preprocessing the data
-```{r activity_load}
+```{r activity_load, echo=TRUE}
 unzip("activity.zip")
 #Read dataset and load into data table object
 activity <- read.table("activity.csv", sep = ",",header = TRUE)
 ```
 ## What is mean total number of steps taken per day?
-```{r activity_mean_steps}
+```{r activity_mean_steps, echo=TRUE}
 library(dplyr)
 #Ignoring missing values
 activity_na <- activity[complete.cases(activity), ]
@@ -33,7 +33,7 @@ median(totalsteps_perday$totalsteps)
 ```
 
 ## What is the average daily activity pattern?
-```{r daily_activity_pattern}
+```{r daily_activity_pattern, echo=TRUE}
 #1. Make a time series plot (i.e. \color{red}{\verb|type = "l"|}type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all days (y-axis)
 steps_per_interval <- activity_na %>% group_by(interval) %>% summarise(avgsteps = mean(steps, na.rm=TRUE))
 plot(steps_per_interval$interval,
@@ -50,7 +50,7 @@ print(paste("Interval: ", steps_per_interval[which.max(steps_per_interval$avgste
 ```
 
 ## Imputing missing values
-```{r missing_values}
+```{r missing_values, echo=TRUE}
 #1. Calculate and report the total number of missing values in the dataset (i.e. the total number of rows with \color{red}{\verb|NA|}NAs)
 print(paste("Number of missing values: ", sum(is.na(activity))))
 #2. Devise a strategy for filling in all of the missing values in the dataset. The strategy does not need to be sophisticated. For example, you could use the mean/median for that day, or the mean for that 5-minute interval, etc.
@@ -76,7 +76,7 @@ print("The mean value does not differ and the median differs just slightly. The 
 ```
 
 ## Are there differences in activity patterns between weekdays and weekends?
-```{r weekdays}
+```{r weekdays, echo=TRUE}
 #1. Create a new factor variable in the dataset with two levels – “weekday” and “weekend” indicating whether a given date is a weekday or weekend day.
 weekdays_weekday <- c("segunda-feira","terça-feira","quarta-feira","quinta-feira","sexta-feira")
 filled_activity$wDay <- c('weekend', 'weekday')[(weekdays(as.Date(activity$date)) %in% weekdays_weekday)+1L]
