@@ -24,7 +24,7 @@ activity_na <- activity[complete.cases(activity), ]
 #1. Calculate the total number of steps taken per day
 totalsteps_perday <- activity_na %>% group_by(date) %>% summarize(totalsteps=sum(steps))
 #2. Make a histogram of the total number of steps taken each day
-with(totalsteps_perday, hist(totalsteps_perday$totalsteps, xlab = "Total Steps Per Day", col = "red", main = "Histogram of the total number of steps taken each day"))
+hist(totalsteps_perday$totalsteps, xlab = "Total Steps Per Day", col = "red", main = "Histogram of the total number of steps taken each day")
 dev.copy(png, file = "figures/plot_totalsteps_perday.png")
 dev.off()
 #3. Calculate and report the mean and median of the total number of steps taken per day
@@ -36,12 +36,12 @@ median(totalsteps_perday$totalsteps)
 ```{r daily_activity_pattern}
 #1. Make a time series plot (i.e. \color{red}{\verb|type = "l"|}type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all days (y-axis)
 steps_per_interval <- activity_na %>% group_by(interval) %>% summarise(avgsteps = mean(steps, na.rm=TRUE))
-with(steps_per_interval, plot(steps_per_interval$interval,
+plot(steps_per_interval$interval,
                              steps_per_interval$avgsteps, 
                              xlab = "5-minute interval",
                              ylab = "Average Number of Steps",             
                              type='l',
-                             main = "Time Series of steps by 5 minute interval"))
+                             main = "Time Series of steps by 5 minute interval")
 dev.copy(png, file = "figures/plot_steps_per_interval.png")
 dev.off()
 #2. Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
@@ -65,10 +65,9 @@ for (row in 1:nrow(activity)) {
 }
 #4. Make a histogram of the total number of steps taken each day and Calculate and report the mean and median total number of steps taken per day. Do these values differ from the estimates from the first part of the assignment? What is the impact of imputing missing data on the estimates of the total daily number of steps?
 filled_totalsteps_perday <- filled_activity %>% group_by(date) %>% summarize(totalsteps=sum(steps))
-with(filled_totalsteps_perday, 
-     hist(filled_totalsteps_perday$totalsteps, 
+hist(filled_totalsteps_perday$totalsteps, 
           xlab = "Total Steps Per Day", col = "red", 
-          main = "Histogram of the total number of steps taken each day"))
+          main = "Histogram of the total number of steps taken each day")
 dev.copy(png, file = "figures/filled_totalsteps_perday.png")
 dev.off()
 mean(filled_totalsteps_perday$totalsteps)

@@ -1,10 +1,11 @@
 ---
-title: "Reproducible Research: Peer Assessment 1"
+title: 'Reproducible Research: Peer Assessment 1'
 author: "rlfacanha"
 date: "17/08/2020"
-output: 
+output:
+  pdf_document: default
   html_document:
-    keep_md: true
+    keep_md: yes
 ---
 
 ## Loading and preprocessing the data
@@ -18,26 +19,6 @@ activity <- read.table("activity.csv", sep = ",",header = TRUE)
 
 ```r
 library(dplyr)
-```
-
-```
-## 
-## Attaching package: 'dplyr'
-```
-
-```
-## The following objects are masked from 'package:stats':
-## 
-##     filter, lag
-```
-
-```
-## The following objects are masked from 'package:base':
-## 
-##     intersect, setdiff, setequal, union
-```
-
-```r
 #Ignoring missing values
 activity_na <- activity[complete.cases(activity), ]
 #1. Calculate the total number of steps taken per day
@@ -50,7 +31,7 @@ totalsteps_perday <- activity_na %>% group_by(date) %>% summarize(totalsteps=sum
 
 ```r
 #2. Make a histogram of the total number of steps taken each day
-with(totalsteps_perday, hist(totalsteps_perday$totalsteps, xlab = "Total Steps Per Day", col = "red", main = "Histogram of the total number of steps taken each day"))
+hist(totalsteps_perday$totalsteps, xlab = "Total Steps Per Day", col = "red", main = "Histogram of the total number of steps taken each day")
 ```
 
 ![](PA1_template_files/figure-html/activity_mean_steps-1.png)<!-- -->
@@ -94,12 +75,12 @@ steps_per_interval <- activity_na %>% group_by(interval) %>% summarise(avgsteps 
 ```
 
 ```r
-with(steps_per_interval, plot(steps_per_interval$interval,
+plot(steps_per_interval$interval,
                              steps_per_interval$avgsteps, 
                              xlab = "5-minute interval",
                              ylab = "Average Number of Steps",             
                              type='l',
-                             main = "Time Series of steps by 5 minute interval"))
+                             main = "Time Series of steps by 5 minute interval")
 ```
 
 ![](PA1_template_files/figure-html/daily_activity_pattern-1.png)<!-- -->
@@ -160,10 +141,9 @@ filled_totalsteps_perday <- filled_activity %>% group_by(date) %>% summarize(tot
 ```
 
 ```r
-with(filled_totalsteps_perday, 
-     hist(filled_totalsteps_perday$totalsteps, 
+hist(filled_totalsteps_perday$totalsteps, 
           xlab = "Total Steps Per Day", col = "red", 
-          main = "Histogram of the total number of steps taken each day"))
+          main = "Histogram of the total number of steps taken each day")
 ```
 
 ![](PA1_template_files/figure-html/missing_values-1.png)<!-- -->
