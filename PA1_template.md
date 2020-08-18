@@ -18,6 +18,26 @@ activity <- read.table("activity.csv", sep = ",",header = TRUE)
 
 ```r
 library(dplyr)
+```
+
+```
+## 
+## Attaching package: 'dplyr'
+```
+
+```
+## The following objects are masked from 'package:stats':
+## 
+##     filter, lag
+```
+
+```
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
+```
+
+```r
 #Ignoring missing values
 activity_na <- activity[complete.cases(activity), ]
 #1. Calculate the total number of steps taken per day
@@ -40,13 +60,13 @@ dev.copy(png, file = "figures/plot_totalsteps_perday.png")
 ```
 
 png 
-  4 
+  3 
 
 ```r
 dev.off()
 ```
 
-pdf 
+png 
   2 
 
 ```r
@@ -89,13 +109,13 @@ dev.copy(png, file = "figures/plot_steps_per_interval.png")
 ```
 
 png 
-  4 
+  3 
 
 ```r
 dev.off()
 ```
 
-pdf 
+png 
   2 
 
 ```r
@@ -153,13 +173,13 @@ dev.copy(png, file = "figures/filled_totalsteps_perday.png")
 ```
 
 png 
-  4 
+  3 
 
 ```r
 dev.off()
 ```
 
-pdf 
+png 
   2 
 
 ```r
@@ -211,11 +231,11 @@ dev.copy(png, file = "figures/steps_perweekday.png")
 ```
 
 png 
-  4 
+  3 
 
 ```r
 dev.off()
 ```
 
-pdf 
+png 
   2 
